@@ -8,7 +8,7 @@ function App() {
 
   return (
     <div className="App">
-      <h1 style={{ textAlign: "center" }}>Hello BOSS!!</h1>
+      <h1>Hello BOSS!!</h1>
       <NavBar setPage={setPage} />
       <div className="content">
         {page === "planets" ?
