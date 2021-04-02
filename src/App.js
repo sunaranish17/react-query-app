@@ -9,7 +9,7 @@ function App() {
   return (
     <div className="App">
       <h1 style={{ textAlign: "center" }}>Hello BOSS!!</h1>
-      <NavBar />
+      <NavBar setPage={setPage} />
       <div className="content">
         {page === "planets" ?
           <Plantes />
