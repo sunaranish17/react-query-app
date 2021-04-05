@@ -1,11 +1,30 @@
 import React from 'react'
+import { QueryClient, QueryClientProvider, useQuery } from 'react-query'
+
+const queryClient = new QueryClient();
+
+const fetchPlanets = async () => {
+    const res = await fetch('http://swapi.dev/api/planets/');
+    return res.json();
+}
 
 function Plantes() {
+    const { data, status } = useQuery('planets', fetchPlanets);
+    console.log("Data>>", data)
     return (
         <div>
-            <h1>This is planet.</h1>
+            <h2>This is planet.</h2>
         </div>
     )
 }
 
-export default Plantes
+//Higher Order Component
+const HOF = (WrappedComponent) => {
+    return (props) => (
+        <QueryClientProvider client={queryClient}>
+            <WrappedComponent {...props} />
+        </QueryClientProvider>
+    )
+}
+
+export default HOF(Plantes)
