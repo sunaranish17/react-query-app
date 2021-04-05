@@ -10,10 +10,25 @@ const fetchPlanets = async () => {
 
 function Plantes() {
     const { data, status } = useQuery('planets', fetchPlanets);
-    console.log("Data>>", data)
+    console.log("Data>>", data);
+
     return (
         <div>
-            <h2>This is planet.</h2>
+            <h2>Planets.</h2>
+
+            {status === 'loading' && (
+                <div>Loading data...</div>
+            )}
+
+            {status === 'error' && (
+                <div>Error fetching data</div>
+            )}
+
+            {status === 'success' && (
+                <div>
+                    {data.results.map(planet => <div>{planet.name}</div>)}
+                </div>
+            )}
         </div>
     )
 }
