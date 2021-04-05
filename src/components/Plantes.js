@@ -4,7 +4,7 @@ import { QueryClient, QueryClientProvider, useQuery } from 'react-query'
 const queryClient = new QueryClient();
 
 const fetchPlanets = async () => {
-    const res = await fetch('http://swapi.dev/api/planets/');
+    const res = await fetch('http://swapi.dev/api/planets/', { mode: 'cors' });
     return res.json();
 }
 
