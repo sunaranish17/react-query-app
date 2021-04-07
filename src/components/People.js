@@ -1,6 +1,6 @@
 import React from 'react'
 import { QueryClient, QueryClientProvider, useQuery } from 'react-query'
-import Planet from './Planet';
+import Person from './Person';
 
 const queryClient = new QueryClient();
 
@@ -27,7 +27,7 @@ function People() {
 
             {status === 'success' && (
                 <div>
-                    {data.results.map(person => <Planet key={planet.name} planet={planet} />)}
+                    {data.results.map(person => <Person key={person.name} />)}
                 </div>
             )}
         </div>
