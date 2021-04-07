@@ -4,18 +4,18 @@ import Planet from './Planet';
 
 const queryClient = new QueryClient();
 
-const fetchPlanets = async () => {
-    const res = await fetch('http://swapi.dev/api/planets/', { mode: 'cors' });
+const fetchPeople = async () => {
+    const res = await fetch('http://swapi.dev/api/people/', { mode: 'cors' });
     return res.json();
 }
 
-function Plantes() {
-    const { data, status } = useQuery('planets', fetchPlanets);
+function People() {
+    const { data, status } = useQuery('people', fetchPeople);
     console.log("Data>>", data);
 
     return (
         <div>
-            <h2>Planets.</h2>
+            <h2>People.</h2>
 
             {status === 'loading' && (
                 <div>Loading data...</div>
@@ -27,7 +27,7 @@ function Plantes() {
 
             {status === 'success' && (
                 <div>
-                    {data.results.map(planet => <Planet key={planet.name} planet={planet} />)}
+                    {data.results.map(person => <Planet key={planet.name} planet={planet} />)}
                 </div>
             )}
         </div>
@@ -43,4 +43,4 @@ const HOF = (WrappedComponent) => {
     )
 }
 
-export default HOF(Plantes)
+export default HOF(People)
