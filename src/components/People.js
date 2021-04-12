@@ -27,7 +27,7 @@ function People() {
 
             {status === 'success' && (
                 <div>
-                    {data.results.map(person => <Person key={person.name} />)}
+                    {data.results.map(person => <Person key={person.name} person={person} />)}
                 </div>
             )}
         </div>

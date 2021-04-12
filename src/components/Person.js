@@ -1,9 +1,11 @@
 import React from 'react'
 
-function Person() {
+function Person({person}) {
     return (
-        <div>
-            
+        <div className="card">
+            <h3>{person.name}</h3>
+            <p>Gender - {person.gender} </p>
+            <p>Birth Year - {person.birth_year} </p>
         </div>
     )
 }
